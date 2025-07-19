@@ -1,7 +1,7 @@
 package com.springSecurity.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.springSecurity.entity.Product;
+import com.springSecurity.entity.UserInfo;
 import com.springSecurity.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +36,9 @@ public class ProductController {
         return service.getProductByCategory(category);
     }
 
+    @PostMapping("/newuser")
+    public String addUser(@RequestBody UserInfo userInfo){
+        return service.addNewUser(userInfo);
+    }
 
 }
